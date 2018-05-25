@@ -1,0 +1,6 @@
+<h1> YelpYelp </h1>
+<p><%= link_to 'New Review', new_review_path %></p>
+<% @reviews.each do |review| %>
+  <h2><%= review.name %></h2>
+  <%= link_to 'Show review', review_path(review) %>
+<% end %>

@@ -1,0 +1,5 @@
+<h1><%="Restaurant Name: #{@review.name}" %></h1>
+<h4>Type: <%=  @review.cuisine %></h1>
+<p>Rating: <%=  @review.rating %></p>
+<p>Comments: <%= @review.comments %></p>
+<%= link_to 'Back', reviews_path %>
