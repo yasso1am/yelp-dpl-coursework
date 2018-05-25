@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   def index
-    @reviews = Review.all
+    @reviews = Review.order(rating: :DESC)
   end
 
   def show
@@ -15,7 +15,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(reviews_params)
 
     if @review.save
-      redirect_to pages_path
+      redirect_to reviews_path
     else
       render :new
     end
@@ -29,7 +29,7 @@ class ReviewsController < ApplicationController
   def update
     @review = Review.find(params[:id])
 
-    if @page.update(reviews_params)
+    if @review.update(reviews_params)
       redirect_to reviews_path
     else
       render :edit
@@ -37,7 +37,7 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    @Review.find(params[:id]).destroy
+    Review.find(params[:id]).destroy
     redirect_to reviews_path
   end
 

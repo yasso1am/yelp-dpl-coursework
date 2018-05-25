@@ -1,6 +1,19 @@
 <h1> YelpYelp </h1>
+
 <p><%= link_to 'New Review', new_review_path %></p>
+<table>
+<tr>
+<th>Restaurant Name</th>
+<th>Rating</th>
+<th>Edit</th>
+<th>Delete</th>
+</tr>
 <% @reviews.each do |review| %>
-  <h2><%= review.name %></h2>
-  <%= link_to 'Show review', review_path(review) %>
+<tr>
+  <td><%= link_to "#{review.name}", review_path(review) %></td>
+  <td><%= "#{review.rating} / 10" %></td>
+  <td><%= link_to 'Edit review', edit_review_path(review) %></td>
+  <td><%= link_to 'Destroy Page', review, method: :delete %></td>
+</tr>
 <% end %>
+</table>

@@ -2,4 +2,5 @@
 <h4>Type: <%=  @review.cuisine %></h1>
 <p>Rating: <%=  @review.rating %></p>
 <p>Comments: <%= @review.comments %></p>
+<%= link_to 'Destroy Page', @review, method: :delete %>
 <%= link_to 'Back', reviews_path %>
